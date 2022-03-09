@@ -29,10 +29,6 @@ h1{
 header{
     background-color: aquamarine;
 }
-/* Estilo imagen logo */
-.img__logo{
-    width: 150px;
-}
 /* Tamaño de la fuente del header */
 .header__txt--size{
     font-size: 40px;

@@ -3,56 +3,95 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <title>Florbel Cuidados</title>
+        <title>Florbel Nosotros</title>
         <!-- linkeo de fuentes -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">  
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet"> 
+        <!-- Linkeo de css boostrap  -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous"> 
         <!-- Linkeo de css -->
         <link rel="stylesheet" href="../css/estilo.css">
     </head>
     <body>
-        <header>
-            <!-- Logo -->
-            <div>
-                <a href="../index.html">
-                    <img src="../assets/img/logo.jpg" alt="logo" class="img__logo">
-                </a>
-                <a href="../index.html" class="header__txt--size">FlorBel</a>
-            </div>
-            <!-- Navegavilidad del sitio web -->
-            <nav>
-                <ul>
-                    <li class="nav__item"><a href="../index.html">INICIO</a></li>
-                    <li class="nav__item"><a href="nosotros.html">NOSOTROS</a></li>
-                    <li class="nav__item"><a href="productos.html">PRODUCTOS</a></li>
-                    <li class="nav__item"><a href="cuidados.html">CUIDADOS</a></li>
-                    <li class="nav__item"><a href="contacto.html">CONTACTO</a></li>
-                </ul>
-            </nav>
-        </header>
-        <main>
-            <!-- Imagenes explicativas de los cuidados de los productos -->
-            <div>
-                <h2 class="main__titulo--size">Cuidados de nuestros productos</h2>
-                <img src="../assets/img/natural.jpg" alt="cuidado 1" class="items__ventas--size">
-                <img src="../assets/img/niños-lejos.png" alt="cuidado 2" class="items__ventas--size">
-                <img src="../assets/img/animales.jpg" alt="cuidado 4" class="items__ventas--size">
-                <img src="../assets/img/lejos-del-calor.png" alt="cuidado 5" class="items__ventas--size">
-            </div>
-        </main>
-        <footer>
-            <!-- Redes sociales -->
-            <div>
-                <a href="https://www.instagram.com/florbel01/" target="_blank" >
-                    <img src="../assets/img/instagram-logo.png" alt="logo_instagram" class="footer__img--size">
-                </a>
-                <a href="https://www.facebook.com/profile.php?id=100074966405015" target="_blank">
-                    <img src="../assets/img/facebook-logo.png" alt="logo_facebook" class="footer__img--size">
-                </a>
-                <img src="../assets/img/gmail-logo.png" alt="logo-gmail" class="footer__img--size">
-                <img src="../assets/img/whatsapp_logo.png" alt="logo-whatsapp" class="footer__img--size">
-            </div>
-        </footer>
+        <div class="container-fluid">
+            <header class="row">
+                <!-- Logo -->
+                <div class="col-lg-4 col-12 d-flex p-2 bd-highlight justify-content-center">
+                    <a href="index.html">
+                        <img src="../assets/img/logo.png" alt="Logo" class="img-fluid">
+                    </a>
+                </div>
+                <div class="col-lg-2 col-5 d-flex p-2 bd-highlight justify-content-center">
+                    <h4 class="header__txt--size">FlorBel</h4>
+                </div>
+                <!-- Navegavilidad del sitio web -->
+                <nav class="navbar navbar-expand-lg navbar-light ">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                      <ul class="navbar-nav">
+                        <li class="nav-item active">
+                          <a class="nav-link" href="../index.html">Index <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="nosotros.html">Nosotros</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="productos.html">Productos</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="cuidados.html">Cuidados</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contacto.html">Contacto</a>
+                          </li>
+                      </ul>
+                    </div>
+                </nav>
+            </header>
+            <main class="row d-flex flex-wrap">
+                <!-- Titulo Cuidados -->
+                <div class="col-lg-12 col-12 d-flex p-2 bd-highlight justify-content-center">
+                    <h2 class="main__titulo--size">Cuidados de nuestros productos</h2>
+                    </div>
+                <!-- Imagenes explicativas de los cuidados de los productos -->
+                <div class="col-lg-4 col-6">
+                    <img src="../assets/img/natural.jpg" alt="cuidado 1" class="d-block w-100">
+                </div>
+                <div class="col-lg-4 col-6">
+                    <img src="../assets/img/niños-lejos.png" alt="cuidado 2" class="d-block w-100">
+                </div>
+                <div class="col-lg-4 col-6">
+                    <img src="../assets/img/animales.jpg" alt="cuidado 4" class="d-block w-100">
+                </div>
+                <div class="col-lg-4 col-6">
+                    <img src="../assets/img/lejos-del-calor.png" alt="cuidado 5" class="d-block w-100">
+                </div>
+            </main>
+            <footer class="row grad">
+                <!-- Redes sociales -->
+                <div class="col-lg-3 col-3">
+                    <a href="https://www.instagram.com/florbel01/" target="_blank" >
+                        <img src="../assets/img/instagram-logo.png" alt="logo_instagram" class="footer__img--size">
+                    </a>
+                </div>
+                <div class="col-lg-3 col-3">
+                    <a href="https://www.facebook.com/profile.php?id=100074966405015" target="_blank">
+                        <img src="../assets/img/facebook-logo.png" alt="logo_facebook" class="footer__img--size">
+                    </a>
+                </div>
+                <div class="col-lg-3 col-3">
+                    <img src="../assets/img/gmail-logo.png" alt="logo-gmail" class="footer__img--size">
+                </div>
+                <div class="col-lg-3 col-3">
+                    <img src="../assets/img/whatsapp_logo.png" alt="logo-whatsapp" class="footer__img--size">
+                </div>
+            </footer>
+        </div>
+        <!-- Linkeo de JS de boostrap -->
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
     </body>
 </html>
