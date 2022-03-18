@@ -1,8 +1,19 @@
-/* Estilo del main */
-main{
-    background-color: rgb(132, 234, 247);
-}
 /* Estilo titulos del cuerpo de cada pagina */
 .main__titulo--size{
-    font-size: 60px;
+    font-size: map-get($fuentes, fuenteX)
+}
+
+/* Estilo etiqueta h1 */
+h1{
+    color: black;
+    font-size:map-get($fuentes, fuenteL);
+}
+
+/* Estilo etiqueta h4 */
+h4{
+    font-size:map-get($fuentes, fuenteM);
+}
+
+p{
+    font-size: map-get($fuentes, fuenteS);
 }
