@@ -1,1 +1,1 @@
-Implementando Funcionalidades de SASS y agregado de cards
+Mejorado de SEO
