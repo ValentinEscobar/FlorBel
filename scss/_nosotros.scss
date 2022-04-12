@@ -1,0 +1,117 @@
+li{
+	list-style-type: none;
+}
+@media only screen and (max-width: 1023px){
+	.contenedor-nosotros{
+	display: grid;
+	grid-template-areas:
+	"logo-nosotros"
+  "txtTitulo-nosotros"
+	"nav-nosotros"
+	"descripcion-nosotros"
+	"img-nosotros"
+	"footer-nosotros";
+	grid-template-columns:100%;
+	grid-template-rows: auto auto auto auto auto;
+	}
+	.logo-nosotros{
+		grid-area: logo-nosotros;
+	}
+  .txtTitulo-nosotros{
+		grid-area: txtTitulo-nosotros;
+	}
+	.nav-nosotros{
+		grid-area: nav-nosotros;
+	}
+	.descripcion-nosotros{
+		grid-area: descripcion-nosotros;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+	.img-nosotros{
+		grid-area: img-nosotros;
+		display: flex;
+		justify-content: center;
+	}
+	.footer-nosotros{
+		grid-area: footer-nosotros;
+  }
+	.nosotrs__img--size{
+		width: 200px;
+	}
+	.footer__nosotros{
+		display: flex;
+		flex-direction: row;
+    	justify-content: space-around;
+	}
+  	.centrar{
+	display: flex;
+	justify-content: center;
+	}
+	.logo__img--size{
+		width: 100px;
+	}
+	.nav-item-nosotros{
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+	}
+}
+@media only screen and (min-width: 1024px){
+	.contenedor-nosotros{
+	display: grid;
+	grid-template-areas:
+	"logo-nosotros"
+  "txtTitulo-nosotros"
+	"nav-nosotros"
+	"descripcion-nosotros"
+	"img-nosotros"
+	"footer-nosotros";
+	grid-template-columns:100%;
+	grid-template-rows: auto auto auto auto auto;
+	}
+	.logo-nosotros{
+		grid-area: logo-nosotros;
+	}
+  .txtTitulo-nosotros{
+		grid-area: txtTitulo-nosotros;
+	}
+	.nav-nosotros{
+		grid-area: nav-nosotros;
+	}
+	.descripcion-nosotros{
+		grid-area: descripcion-nosotros;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+	.img-nosotros{
+		grid-area: img-nosotros;
+		display: flex;
+		justify-content: center;
+	}
+	.footer-nosotros{
+		grid-area: footer-nosotros;
+  	}
+	.nosotrs__img--size{
+		width: 500px;
+	}
+	.footer__nosotros{
+		display: flex;
+		flex-direction: row;
+    justify-content: space-around;
+	}
+	.centrar{
+	display: flex;
+	justify-content: center;
+	}
+	.logo__img--size{
+		width: 300px;
+	}
+	.nav-item-nosotros{
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+	}
+}

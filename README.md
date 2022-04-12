@@ -1,1 +1,1 @@
-Mejorado de SEO
+Aplicacion de la pagina nosotros con grids
