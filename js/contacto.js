@@ -32,3 +32,6 @@ campoTelefono.oninput=()=>{
         campoTelefono.style.color="black";
     }
 }
+
+//Pagina INDEX
+//usario y contraseña
