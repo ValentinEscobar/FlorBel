@@ -5,7 +5,7 @@ let campoNombre=document.getElementById("nombre");
 let campoEmail=document.getElementById("email");
 let campoTelefono=document.getElementById("telefono");
 let formContacto=document.getElementById("formContacto");
-//validacion de campos
+//declaracion de que evento escuchar
 formContacto.addEventListener("submit",validarFormulario);
 //funcion validar informacion antes de enviar
 function validarFormulario(ev){
@@ -32,6 +32,3 @@ campoTelefono.oninput=()=>{
         campoTelefono.style.color="black";
     }
 }
-
-//Pagina INDEX
-//usario y contraseña
