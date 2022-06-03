@@ -87,7 +87,7 @@ if(sessionStorage.getItem("carrito")!=null){
 function addProductCarrito(newProductCarrito) {
     carrito.push(newProductCarrito);
     console.log(carrito);
-    //alert("producto: "+newProductCarrito.nameProduct+" agregado al carro!")
+    alert("producto: "+newProductCarrito.nameProduct+" agregado al carro!")
     sessionStorage.setItem("carrito",JSON.stringify(carrito));
 }
 
