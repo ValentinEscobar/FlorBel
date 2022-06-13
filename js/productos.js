@@ -1,77 +1,173 @@
 //Pagina PRODUCTOS
-// funcion constructora de objetos de la pagina web
-class Product{
-    constructor(nameProduct, priceProduct) {
-        this.nameProduct = nameProduct.toLowerCase();
-        this.priceProduct = parseFloat(priceProduct);
-        this.idProduct = idProduct;
-    }
-    discount() {
-        this.precio = this.precio * 0.05;
-    }
-}
+
+// // funcion constructora de objetos de la pagina web
+// class Product{
+//     constructor(nameProduct, priceProduct) {
+//         this.nameProduct = nameProduct.toLowerCase();
+//         this.priceProduct = parseFloat(priceProduct);
+//         this.idProduct = idProduct;
+//     }
+//     discount() {
+//         this.precio = this.precio * 0.05;
+//     }
+// }
+
 //Declaro un array para almacenar el producto y su precio
 const products = [{
     idProduct: 1, 
     nameProduct:"Pack 5", 
-    priceProduct:"480"
+    priceProduct:"480",
+    imgProduct: "../assets/img/caja-pack1.jpg",
+    shortDescription: "Llevate 5 jabones y paga solo 4"
 },
 {
     idProduct: 2, 
-    nameProduct:"Pack 6", 
-    priceProduct:"480"
+    nameProduct:"Jabon de rosas", 
+    priceProduct:"120",
+    imgProduct: "../assets/img/jabon-rosas2.jpg",
+    shortDescription: "Jabón de rosas para pieles sencibles, mantiene tu piel suave."
 },
 {
     idProduct: 3, 
-    nameProduct:"Pack 6 Ultra", 
-    priceProduct:"600"},
+    nameProduct:"Jabon de avena y miel", 
+    priceProduct:"120",
+    imgProduct: "../assets/img/jabon-avenaymiel.jpg",
+    shortDescription: "Hidrata y deja tu piel suave, ademas tiene un aroma exquisito."
+},
 {
     idProduct: 4, 
-    nameProduct:"Pack 6 Mega", 
-    priceProduct:"360"},
+    nameProduct:"Jabon de brisa marina", 
+    priceProduct:"120",
+    imgProduct: "../assets/img/jabon-brisamarina.jpg",
+    shortDescription: "Con un apareciencia única! un aroma que transporta."
+},
 {
     idProduct: 5, 
-    nameProduct:"Pack 6 Estelar", 
-    priceProduct:"360"
+    nameProduct:"Jabon canela y cafe", 
+    priceProduct:"120",
+    imgProduct: "../assets/img/jabon-canelacafe.jpg",
+    shortDescription: "¿Sos amante del café como yo? Nada mejor que una exfoliación que te deje un suave aroma a café!"
 },
 {
     idProduct: 6, 
-    nameProduct:"Jabon de rosas", 
-    priceProduct:"120"
+    nameProduct:"Jabon carbon activado", 
+    priceProduct:"120",
+    imgProduct: "../assets/img/jabon-carbonactivado.jpg",
+    shortDescription: "Jabón con propiedades antioxidates."
 },
 {
     idProduct: 7, 
-    nameProduct:"Jabon de avena y miel", 
-    priceProduct:"120"
+    nameProduct:"Jabon coco", 
+    priceProduct:"120",
+    imgProduct: "../assets/img/jabon-coco.jpg",
+    shortDescription: "Exelente para nutrir e hidratar tu piel, ademas es apto para todo tipo de piel."
 },
 {
     idProduct: 8, 
-    nameProduct:"Jabon de brisa marina", 
-    priceProduct:"120"
-},
-{
-    idProduct: 9, 
-    nameProduct:"Jabon canela y cafe", 
-    priceProduct:"120"
-},
-{
-    idProduct: 10, 
-    nameProduct:"Jabon carbon activado", 
-    priceProduct:"120"
-},
-{
-    idProduct: 11, 
-    nameProduct:"Jabon coco", 
-    priceProduct:"120"
-},
-{
-    idProduct: 12, 
     nameProduct:"Jabon lavanda", 
-    priceProduct:"120"
+    priceProduct:"120",
+    imgProduct: "../assets/img/jabon-lavanda.jpg",
+    shortDescription: "Jabón con propiedades relajates para nunca dejar de mimar tu piel."
 }];
 
+const listaProductos = document.getElementById("listProducts")
+const listaCarrito = document.getElementById("carrito")
 //declaro variable carrito
-let carrito;
+const carrito = []
+
+//funcion para organizar en cards los productos
+const renderProductos = (mostrando) =>{
+
+    mostrando.forEach(element => {
+        
+        let card = document.createElement('div')
+        card.className = "card"
+        card.style = "width: 20rem;"
+        card.innerHTML = `
+        <img src=${element.imgProduct}></img>
+        <h3>${element.nameProduct}</h3>
+        <p>${element.shortDescription}</p>
+        <p>${element.priceProduct}</p>
+        <button class="btn btn-carrito btn-success" id=${element.idProduct}>Agregar al carrito</button>
+        `
+
+        listaProductos.appendChild(card)
+
+    });
+
+}
+//Llamo a la funcion para que muestre todos los productos del array products en pantalla 
+renderProductos(products);
+
+
+const buttons = document.getElementsByClassName("btn-carrito")
+
+for(const button of buttons){
+    button.addEventListener('click', (e)=>{
+    
+        
+    let elemento = products.find(element=> element.id == e.target.id);
+    juanito(elemento);
+    // addCarrito(product);
+
+
+    })
+}
+
+//funcion usando libreria para mostrar notificacion de agregado al carrito
+function juanito (products) {
+
+         Toastify({
+             text: `Agregaste ${products.nameProduct.toLowerCase()} al carrito`,
+             duration: 3000,
+             gravity: "top",
+             position: "right", 
+             stopOnFocus: true,
+             style: {
+               background: "linear-gradient(to right, #00b09b, #96c93d)",
+             },
+             onClick: function(){
+    
+             } // Callback after click
+           }).showToast();
+}
+
+/*
+function addCarrito (elementPurchase) {
+     
+
+     let seRepite = carrito.findIndex(element => element.titulo == objeto.titulo)
+     console.log(seRepite)
+     console.log(carrito)
+
+     if(seRepite == -1){
+         elementPurchase.cantidad = 1
+         carrito.push(objeto)
+     }else{
+         carrito[seRepite].cantidad ++
+     }
+    
+
+    listaCarrito.innerHTML = ''
+
+
+
+    for(const product of carrito){
+        let li = document.createElement("li")
+        li.innerHTML= `
+        <div>
+        <p>${product.titulo}</p> 
+        <p>${product.precio}</p>
+        <p>${product.cantidad}</p>
+        </div>
+        `
+        listaCarrito.appendChild(li)
+    }
+}
+*/
+
+
+/*
 // verificacion de contenido de array carrito
 if(sessionStorage.getItem("carrito")!=null){
     //chequeo si hay elementos en el carrito
@@ -83,6 +179,7 @@ if(sessionStorage.getItem("carrito")!=null){
     carrito=[];
 }
 
+
 //funcion agregar al carrito
 function addProductCarrito(newProductCarrito) {
     carrito.push(newProductCarrito);
@@ -90,8 +187,20 @@ function addProductCarrito(newProductCarrito) {
     alert("producto: "+newProductCarrito.nameProduct+" agregado al carro!")
     sessionStorage.setItem("carrito",JSON.stringify(carrito));
 }
+*/
 
+// un JS que tenga solo los productos
+
+// hacer que automaticamente por cada objeto genere una tarjeta que contenga la imagen, el nombre, una breve descripcion, precio y el boton comprar
+
+// hacer una funcion para recorrer cada boton y asignarle la funcion del boton
+
+//agregar el sweet alert en cada boton comprar y en el boton de finalizar la compra
+
+
+/*
 //Botones comprar
+
 //boton comprar pack 5
 let botonComprarPack5=document.getElementById("btn__comprar--pack5");
 botonComprarPack5.addEventListener("click", function (){addProductCarrito(products[0])});
@@ -130,7 +239,10 @@ botonComprarPack6E.addEventListener("click", function (){addProductCarrito(produ
  botonComprarjabonlavanda.addEventListener("click", function (){addProductCarrito(products[11])});
 
 
-/*
+
+
+
+
 //funcion agregar productos a la web
 function addProduct() {
     //ingresa el nuevo porducto

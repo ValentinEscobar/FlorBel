@@ -53,225 +53,21 @@
                     </div>
                 </nav>
             </header>
-            <main class="row d-flex flex-wrap">
+            <main class="">
                 <!-- buscador de productos -->
                 <input type="text" name="busqueda" placeholder="¿Que estas buscando?"><br>
-                <!-- Modal de carrito -->
-                <div class="modal fade" id="modalcarrito" tabindex="-1" role="dialog" aria-labelledby="TituloModal" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal content">
-                            <!-- Modal de carrito header -->
-                            <div class="modal header">
-                                <h5 id="TituloModal">Productos en el carrito</h5>
-                                <button class="close" data-dismiss="modal" aria-label="Cerrar">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <!-- Modal de carrito body -->
-                            <div class="modal-body">
-                                <div class="alert alert-success">
-                                    <h6><strong>aqui van los productos</strong></h6>
-                                </div>
-                            </div>
-                            <!-- Modal de carrito footer -->
-                            <div class="modal-footer">
-                                <button class="btn btn-warning" type="button" data-dismiss="modal">Cerrar</button>
-                                <button class="btn btn-success">Aceptar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <!-- Imagen titulo de la lista de paks de los productos -->
                 <div class="col-lg-12 col-12">
                     <img src="../assets/img/caja-pack1.jpg" alt="articulo 1" class="d-block w-100">
                 </div>
-                <!-- Titulo de la lista de paks de los productos -->
-                <div class="col-lg-12 col-12 d-flex p-2 bd-highlight justify-content-center">
-                <h2 class="main__titulo--size ">Paks</h2>
+                <!-- Listado de productos mediante JavaScript -->
+                <div id="listProducts">
+                    <!-- Lista de productos -->
+
                 </div>
-                <div class="container d-flex p-2 bd-highlight justify-content-center">
-                    <div class="row d-flex p-2 bd-highlight justify-content-center">
-                        <!-- listado de packs -->
-                        <div class="p-2 bd-highlight justify-content-center card card-productos">
-                            <img src="../assets/img/caja-pack1.jpg" alt="pack 1">
-                            <section>
-                                <!-- nombre del pack-->
-                                <h3>Pack 5</h3>
-                                <!-- breve descripcion del pack-->
-                                <p>
-                                    Llevate 5 jabones y paga solo 4
-                                </p>
-                                <!-- Precio del pack -->
-                                <h5>$480</h5>
-                                <!-- Boton de comprar -->
-                                <button class="btn btn-success" data-toggle="modal" data-target="modalcarrito" id="btn__comprar--pack5">COMPRAR</button>
-                            </section>
-                        </div>
-                        <div class="d-flex flex-column p-2 bd-highlight justify-content-center card card-productos">
-                            <img src="../assets/img/caja-pack1.jpg" alt="pack 2">
-                            <section>
-                                <!-- nombre del pack-->
-                                <h3>Pack 6</h3>
-                                <!-- breve descripcion del pack-->
-                                <p>
-                                    Llevate 6 jabones y paga solo 4
-                                </p>
-                                <!-- Precio del pack -->
-                                <h5>$480</h5>
-                                <button class="btn btn-success" id="btn__comprar--pack6">COMPRAR</button>
-                            </section>
-                        </div>
-                        <div class="d-flex flex-column p-2 bd-highlight justify-content-center card card-productos">
-                            <img src="../assets/img/caja-pack1.jpg" alt="pack 3">
-                            <section>
-                                <!-- nombre del pack-->
-                                <h3>Pack 6 Ultra</h3>
-                                <!-- breve descripcion del pack-->
-                                <p>
-                                    Lleveate 6 jabones a tu eleccion y paga 5
-                                </p>
-                                <!-- Precio del pack -->
-                                <h5>$600</h5>
-                                <button class="btn btn-success" id="btn__comprar--pack6u">COMPRAR</button>
-                            </section>
-                        </div>
-                        <div class="d-flex flex-column p-2 bd-highlight justify-content-center card card-productos">
-                            <img src="../assets/img/caja-pack1.jpg" alt="pack 4">
-                            <section>
-                                <!-- nombre del pack-->
-                                <h3>Pack 6 Mega</h3>
-                                <!-- breve descripcion del pack-->
-                                <p>
-                                    Llevate 6 jabones del mimsmo tipo y paga 3
-                                </p>
-                                <!-- Precio del pack -->
-                                <h5>$360</h5>
-                                <button class="btn btn-success" id="btn__comprar--pack6m">COMPRAR</button>
-                            </section>
-                        </div>
-                        <div class="d-flex flex-column p-2 bd-highlight justify-content-center card card-productos">
-                            <img src="../assets/img/caja-pack1.jpg" alt="pack 5">
-                            <section>
-                                <!-- nombre del pack-->
-                                <h3>Pack 6 Estelar</h3>
-                                <!-- breve descripcion del pack-->
-                                <p>
-                                    Lleva 6 jabones con 2 a eleccion y paga 3
-                                </p>
-                                <!-- Precio del pack -->
-                                <h5>$360</h5>
-                                <button class="btn btn-success" id="btn__comprar--pack6e">COMPRAR</button>
-                        </div>
-                    </div>
-                </div>
-                <!-- Imagen titulo de la lista de Jabones de los productos -->
-                <div class="col-lg-12 col-12">
-                <img src="../assets/img/jabon-lavanda-principal.jpg" alt="articulo 1" class="d-block w-100">
-                </div>
-                <div class="container d-flex p-2 bd-highlight justify-content-center">
-                <div class="row d-flex p-2 bd-highlight justify-content-center">
-                <!-- Titulo de la lista de Jabones de los productos -->
-                <div class="col-lg-12 col-12 d-flex p-2 bd-highlight justify-content-center">
-                <h2 class="main__titulo--size ">Jabones</h2>
-                </div>
-                <!-- listado de jabones -->
-                <div class="d-flex flex-column p-2 bd-highlight justify-content-center card card-productos">
-                    <img src="../assets/img/jabon-rosas2.jpg" alt="jabon-rosas2">
-                    <section>
-                        <!-- nombre del articulo-->
-                        <h3>Jabon de Rosas</h3>
-                        <!-- breve descripcion del articulo-->
-                        <p>
-                            Jabón de rosas para pieles sencibles, mantiene tu piel suave.
-                        </p>
-                        <!-- Precio del pack -->
-                        <h5>$120</h5>
-                        <button class="btn btn-success" id="btn__comprar--jabonrosas">COMPRAR</button>
-                    </section>
-                </div>
-                <div class="d-flex flex-column p-2 bd-highlight justify-content-center card card-productos">
-                    <img src="../assets/img/jabon-avenaymiel.jpg" alt="jabon-avenaymiel">
-                    <section>
-                        <!-- nombre del articulo -->
-                        <h3>Jabón de Avena y Miel</h3>
-                        <!-- breve descripcion del articulo -->
-                        <p>
-                            Hidrata y deja tu piel suave, ademas tiene un aroma exquisito. 
-                        </p>
-                        <!-- precio del jabon -->
-                        <h5>$120</h5>
-                        <button class="btn btn-success" id="btn__comprar--jabonavenaymiel">COMPRAR</button>
-                    </section>
-                </div>
-                <div class="d-flex flex-column p-2 bd-highlight justify-content-center card card-productos">
-                    <img src="../assets/img/jabon-brisamarina.jpg" alt="jabon-brisamarina">
-                    <section>
-                        <!-- nombre del articulo -->
-                        <h3>Jabón de Brisa Marina</h3>
-                        <!-- breve descripcion del articulo -->
-                        <p>
-                            Con un apareciencia única! un aroma que transporta.
-                        </p>
-                        <!-- precio del jabon -->
-                        <h5>$120</h5>
-                        <button class="btn btn-success" id="btn__comprar--jabonbrisamarina">COMPRAR</button>
-                    </section>
-                </div>
-                <div class="d-flex flex-column p-2 bd-highlight justify-content-center card card-productos">
-                    <img src="../assets/img/jabon-canelacafe.jpg" alt="jabon-canelacafe">
-                    <section>
-                        <!-- nombre del articulo -->
-                        <h3>Jabón de Canela y Café</h3>
-                        <!-- breve descripcion del articulo -->
-                        <p>
-                            ¿Sos amante del café como yo? Nada mejor que una exfoliación que te deje un suave aroma a café!
-                        </p>
-                        <!-- precio del jabon -->
-                        <h5>$120</h5>
-                        <button class="btn btn-success" id="btn__comprar--jaboncanelaycafe">COMPRAR</button>
-                    </section>
-                </div>
-                <div class="d-flex flex-column p-2 bd-highlight justify-content-center card card-productos">
-                    <img src="../assets/img/jabon-carbonactivado.jpg" alt="jabon-carbonactivado">
-                    <section>
-                        <!-- nombre del articulo -->
-                        <h3>Jabón de Carbon activado</h3>
-                        <!-- breve descripcion del articulo -->
-                        <p>
-                            Jabón con propiedades antioxidates.
-                        </p>
-                        <!-- precio del jabon -->
-                        <h5>$120</h5>
-                        <button class="btn btn-success" id="btn__comprar--jaboncarbonactivado">COMPRAR</button>
-                    </section>
-                </div>
-                <div class="d-flex flex-column p-2 bd-highlight justify-content-center card card-productos">
-                    <img src="../assets/img/jabon-coco.jpg" alt="jabon-coco">
-                    <section>
-                        <!-- nombre del articulo -->
-                        <h3>Jabón de Coco</h3>
-                        <!-- breve descripcion del articulo -->
-                        <p>
-                            Exelente para nutrir e hidratar tu piel, ademas es apto para todo tipo de piel.
-                        </p>
-                        <!-- precio del jabon -->
-                        <h5>$120</h5>
-                        <button class="btn btn-success" id="btn__comprar--jaboncoco">COMPRAR</button>
-                    </section>
-                </div>
-                <div class="d-flex flex-column p-2 bd-highlight justify-content-center card card-productos">
-                    <img src="../assets/img/jabon-lavanda.jpg" alt="jabon-lavanda">
-                    <section>
-                        <!-- nombre del articulo -->
-                        <h3>Jabón de Lavanda</h3>
-                        <!-- breve descripcion del articulo -->
-                        <p>
-                            Jabón con propiedades relajates para nunca dejar de mimar tu piel.
-                        </p>
-                        <!-- precio del jabon -->
-                        <h5>$120</h5>
-                        <button class="btn btn-success" id="btn__comprar--jabonlavanda">COMPRAR</button>
-                    </section>
+                <!-- Listado de productos en el carrito -->
+                <div id="carrito">
+                    <!-- Lista de productos del carrito -->
                 </div>
             </main>
             <footer class="row grad">
@@ -294,10 +90,14 @@
                 </div>
             </footer>
         </div>
-    <!-- Linkeo de JS Productos-->
-    <script src="../js/productos.js"></script>
     <!-- Linkeo de JS de boostrap -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+    <!-- Linkeo de JS sweetalert2 -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- toastify -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <!-- Linkeo de JS Productos-->
+    <script src="../js/productos.js"></script>
     </body>
 </html>
