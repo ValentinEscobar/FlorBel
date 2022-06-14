@@ -53,21 +53,30 @@
                     </div>
                 </nav>
             </header>
-            <main class="">
+            <main class="row">
                 <!-- buscador de productos -->
                 <input type="text" name="busqueda" placeholder="¿Que estas buscando?"><br>
                 <!-- Imagen titulo de la lista de paks de los productos -->
                 <div class="col-lg-12 col-12">
                     <img src="../assets/img/caja-pack1.jpg" alt="articulo 1" class="d-block w-100">
                 </div>
-                <!-- Listado de productos mediante JavaScript -->
-                <div id="listProducts">
-                    <!-- Lista de productos -->
-
+                <!-- Contenedor de la lista de productos -->
+                <div class="container d-flex p-2 bd-highlight justify-content-center">
+                    <div class="row d-flex p-2 bd-highlight justify-content-center">
+                        <!-- Listado de productos mediante JavaScript -->
+                        <div id="listProducts">
+                            <!-- Lista de productos -->
+                        </div>
+                    </div>
                 </div>
-                <!-- Listado de productos en el carrito -->
-                <div id="carrito">
-                    <!-- Lista de productos del carrito -->
+                <!-- Titulo de Lista de productos del carrito -->
+                <div class="col-lg-12 col-12 d-flex p-2 bd-highlight justify-content-center">
+                    <h2 >Listado de Carrito compras</h2>
+                </div>
+                <!-- Contenedor de la lista de productos -->
+                <div id="carrito" class="container d-flex p-2 bd-highlight justify-content-center">
+                    <!-- Listado de productos en el carrito -->
+                    
                 </div>
             </main>
             <footer class="row grad">

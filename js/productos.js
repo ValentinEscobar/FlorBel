@@ -70,10 +70,21 @@ const products = [{
     shortDescription: "Jabón con propiedades relajates para nunca dejar de mimar tu piel."
 }];
 
+// verificacion de contenido de array carrito
+if(sessionStorage.getItem("carrito")!=null){
+    //chequeo si hay elementos en el carrito
+    carrito=JSON.parse(sessionStorage.getItem("carrito"));
+
+}else{
+
+    //Declaro un array para almacenar los productos que va comprando en el carritos
+    carrito=[];
+
+}
+
+
 const listaProductos = document.getElementById("listProducts")
 const listaCarrito = document.getElementById("carrito")
-//declaro variable carrito
-const carrito = []
 
 //funcion para organizar en cards los productos
 const renderProductos = (mostrando) =>{
@@ -81,105 +92,80 @@ const renderProductos = (mostrando) =>{
     mostrando.forEach(element => {
         
         let card = document.createElement('div')
-        card.className = "card"
+        card.className = "d-flex flex-column p-2 bd-highlight justify-content-center card card-productos"
         card.style = "width: 20rem;"
         card.innerHTML = `
         <img src=${element.imgProduct}></img>
         <h3>${element.nameProduct}</h3>
         <p>${element.shortDescription}</p>
-        <p>${element.priceProduct}</p>
+        <h5>${element.priceProduct}</h5>
         <button class="btn btn-carrito btn-success" id=${element.idProduct}>Agregar al carrito</button>
         `
-
         listaProductos.appendChild(card)
-
     });
 
 }
 //Llamo a la funcion para que muestre todos los productos del array products en pantalla 
 renderProductos(products);
 
-
+//declaro una variable que llama a todos los botones con la clase "btn-carrito"
 const buttons = document.getElementsByClassName("btn-carrito")
 
+//for of para recorrer los botones y asignarles un listener, un find, una funcion de alerta y una funcion de agregar al carrito
 for(const button of buttons){
     button.addEventListener('click', (e)=>{
-    
-        
-    let elemento = products.find(element=> element.id == e.target.id);
+    let elemento = products.find(element=> element.idProduct == e.target.id);
+    //funcion usando libreria para mostrar notificacion de agregado al carrito
     juanito(elemento);
-    // addCarrito(product);
-
-
+    //funcion de agregado al carrito
+    addCarrito(elemento);
     })
 }
 
 //funcion usando libreria para mostrar notificacion de agregado al carrito
-function juanito (products) {
-
-         Toastify({
-             text: `Agregaste ${products.nameProduct.toLowerCase()} al carrito`,
-             duration: 3000,
-             gravity: "top",
-             position: "right", 
-             stopOnFocus: true,
-             style: {
-               background: "linear-gradient(to right, #00b09b, #96c93d)",
-             },
-             onClick: function(){
-    
-             } // Callback after click
-           }).showToast();
+function juanito (produ) {
+    Swal.fire({
+        icon: 'success',
+        title: `${produ.nameProduct.toLowerCase()}`,
+        text: `Agregaste ${produ.nameProduct.toLowerCase()} al carrito`,
+      })
+         
 }
 
-/*
+//funcion de agregado al carrito
 function addCarrito (elementPurchase) {
      
 
-     let seRepite = carrito.findIndex(element => element.titulo == objeto.titulo)
+     let seRepite = carrito.findIndex(Productos => products.nameProduct == elementPurchase.nameProduct)
      console.log(seRepite)
      console.log(carrito)
 
      if(seRepite == -1){
          elementPurchase.cantidad = 1
-         carrito.push(objeto)
+         carrito.push(elementPurchase)
+         sessionStorage.setItem("carrito",JSON.stringify(carrito));
      }else{
          carrito[seRepite].cantidad ++
+         sessionStorage.setItem("carrito",JSON.stringify(carrito));
      }
-    
 
+    // limpia el array carrito de todo lo anterior
     listaCarrito.innerHTML = ''
-
-
-
+    //recorre el carrito y si hay nuevos productos los ingresa
     for(const product of carrito){
         let li = document.createElement("li")
         li.innerHTML= `
         <div>
-        <p>${product.titulo}</p> 
-        <p>${product.precio}</p>
-        <p>${product.cantidad}</p>
+        <p>${product.nameProduct}</p> 
+        <p>${product.priceProduct}</p>
         </div>
         `
         listaCarrito.appendChild(li)
     }
+    
 }
-*/
-
 
 /*
-// verificacion de contenido de array carrito
-if(sessionStorage.getItem("carrito")!=null){
-    //chequeo si hay elementos en el carrito
-    carrito=JSON.parse(sessionStorage.getItem("carrito"));
-    //mostrarlos por modal o push bar
-
-}else{
-    //Declaro un array para almacenar los productos que va comprando en el carritos
-    carrito=[];
-}
-
-
 //funcion agregar al carrito
 function addProductCarrito(newProductCarrito) {
     carrito.push(newProductCarrito);
