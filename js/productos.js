@@ -165,110 +165,37 @@ function addCarrito (elementPurchase) {
     
 }
 
-/*
-//funcion agregar al carrito
-function addProductCarrito(newProductCarrito) {
-    carrito.push(newProductCarrito);
-    console.log(carrito);
-    alert("producto: "+newProductCarrito.nameProduct+" agregado al carro!")
-    sessionStorage.setItem("carrito",JSON.stringify(carrito));
-}
-*/
+const listaproximosProdu = document.getElementById("listaProximosProductos")
 
-// un JS que tenga solo los productos
-
-// hacer que automaticamente por cada objeto genere una tarjeta que contenga la imagen, el nombre, una breve descripcion, precio y el boton comprar
-
-// hacer una funcion para recorrer cada boton y asignarle la funcion del boton
-
-//agregar el sweet alert en cada boton comprar y en el boton de finalizar la compra
-
-
-/*
-//Botones comprar
-
-//boton comprar pack 5
-let botonComprarPack5=document.getElementById("btn__comprar--pack5");
-botonComprarPack5.addEventListener("click", function (){addProductCarrito(products[0])});
-//boton comprar pack 6
-let botonComprarPack6=document.getElementById("btn__comprar--pack6");
-botonComprarPack6.addEventListener("click", function (){addProductCarrito(products[1])});
-//boton comprar pack 6 Ultra
-let botonComprarPack6U=document.getElementById("btn__comprar--pack6u");
-botonComprarPack6U.addEventListener("click", function (){addProductCarrito(products[2])});
-//boton comprar pack 6 Mega
-let botonComprarPack6M=document.getElementById("btn__comprar--pack6m");
-botonComprarPack6M.addEventListener("click", function (){addProductCarrito(products[3])});
-//boton comprar pack 6 Estekar
-let botonComprarPack6E=document.getElementById("btn__comprar--pack6e");
-botonComprarPack6E.addEventListener("click", function (){addProductCarrito(products[4])});
- //boton comprar jabon de rosas
- let botonComprarjabonrosas=document.getElementById("btn__comprar--jabonrosas");
- botonComprarjabonrosas.addEventListener("click", function (){addProductCarrito(products[5])});
- //boton comprar jabon de avena y miel
- let botonComprarjabonavenaymiel=document.getElementById("btn__comprar--jabonavenaymiel");
- botonComprarjabonavenaymiel.addEventListener("click", function (){addProductCarrito(products[6])});
- //boton comprar jabon de brisa marina
- let botonComprarjabonbrisamarina=document.getElementById("btn__comprar--jabonbrisamarina");
- botonComprarjabonbrisamarina.addEventListener("click", function (){addProductCarrito(products[7])});
- //boton comprar jabon de canela y cafe
- let botonComprarjaboncanelaycafe=document.getElementById("btn__comprar--jaboncanelaycafe");
- botonComprarjaboncanelaycafe.addEventListener("click", function (){addProductCarrito(products[8])});
- //boton comprar jabon de carbon activado
- let botonComprarjaboncarbonactivado=document.getElementById("btn__comprar--jaboncarbonactivado");
- botonComprarjaboncarbonactivado.addEventListener("click", function (){addProductCarrito(products[9])});
- //boton comprar jabon de coco
- let botonComprarjaboncoco=document.getElementById("btn__comprar--jaboncoco");
- botonComprarjaboncoco.addEventListener("click", function (){addProductCarrito(products[10])});
- //boton comprar jabon de lavanda
- let botonComprarjabonlavanda=document.getElementById("btn__comprar--jabonlavanda");
- botonComprarjabonlavanda.addEventListener("click", function (){addProductCarrito(products[11])});
-
-
-
-
-
-
-//funcion agregar productos a la web
-function addProduct() {
-    //ingresa el nuevo porducto
-    nameProduct = prompt("Ingrese el nombre del nuevo producto");
-    priceProduct = prompt("Ingrese el precio del nuevo producto");
-    if ((nameProduct != "") && (priceProduct != "")) {
-        //guarda el objeto producto en el array porducts
-        products.push(new Product(nameProduct, priceProduct));
-        //mensaje de confiramcion
-        alert("su producto a sido agregado.")
-    } else {
-        alert("error al ingresar el producto")
-    }   
-}
-//funcion eliminar productos de la web
-function rmvProduct() {
-    // ingresa el producto a eliminar
-    let rmvProduct = prompt("Ingrese el producto que desea eliminar");
-    //chequear si existe el producto ingresado
-    let conditionrmv = products.indexOf(rmvProduct);
-    if (conditionrmv!=-1) {
-        //eliminacion de producto
-        products.splice(conditionrmv, 1);
-        // mensaje de confiramcion de eliminacion
-        alert("Su producto a sido eliminado");
-    } else {
-        alert("El producto ingresado no existe")
+//traigo el json local para poner los productos que proximamente saldran a la venta
+function obtenerproximosproductos(){
+    const URLJSON="/proximosProductos.json";
+    //agrego un boton 
+    document.querySelector("#listaProximosProductos").innerHTML='<button id="cargarproxproductos" class="btn btn-danger">Ver prox productos</button>';
+    //evento para el boton
+    document.querySelector("#cargarproxproductos").onclick=()=>{
+        fetch(URLJSON)
+            .then((respuesta)=>respuesta.json())
+            .then((data)=>{
+                let prodProx=data.productosProximos;
+                //for of de todos los productos que tengo en el json
+                for(const productprox of prodProx){
+                    //incerto en la pagina todos los proximos productos que saldran a la venta
+                    let card = document.createElement('div')
+                    card.className = "d-flex flex-column p-2 bd-highlight justify-content-center card card-productos"
+                    card.style = "width: 20rem;"
+                    card.innerHTML = `
+                    <img src=${productprox.imagen}></img>
+                    <h3>${productprox.nombre}</h3>
+                    <p>${productprox.descripcion}</p>
+                    `
+                    listaproximosProdu.appendChild(card)
+                }
+            })
+            .catch((error)=>{
+                console.log("Error: "+error);
+            });
     }
 }
-// //funcion agregar productos al carrito
-// function addCarrito() {
 
-// }
-// //funcion eliminar productos del carrito
-// function rmvCarrito() {
-    
-// }
-// //funcion sumar el precio total de todos los productos del carrito
-// function totalPurchase() {
-// discount()
-// }
-
-*/
+obtenerproximosproductos();

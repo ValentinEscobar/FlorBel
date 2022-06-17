@@ -1,0 +1,24 @@
+{
+    "productosProximos": [{
+            "nombre": "Escencia Afrodiciaca",
+            "imagen": "/assets/img/escencia-afrodiciaca.jpg",
+            "descripcion": "Escencia de efecto afrodiciaco"
+        },
+        {
+            "nombre": "Escencia anti-estres y relajante",
+            "imagen": "../assets/img/escencia-anti-estres-y-relajante.jpg",
+            "descripcion": "Escencia con efecto relajante y para combatir el estres"
+        },
+        {
+            "nombre": "Escencia descongestionante y calmante",
+            "imagen": "../assets/img/escencia-descongestionante-y-calmante.jpg",
+            "descripcion": "Escencia con efecto calmante y descongestionante"
+        },
+        {
+            "nombre": "Perfumador Fresco",
+            "imagen": "../assets/img/perfumador-fresco.jpg",
+            "descripcion": "para darle gran aroma a tu ropa"
+        }
+        
+    ]
+}

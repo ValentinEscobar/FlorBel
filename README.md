@@ -1,1 +1,1 @@
-Aplicando storage.
+Incorporando las funcionalidades de fetch a mi projecto
