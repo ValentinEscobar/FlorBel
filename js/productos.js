@@ -169,7 +169,7 @@ const listaproximosProdu = document.getElementById("listaProximosProductos")
 
 //traigo el json local para poner los productos que proximamente saldran a la venta
 function obtenerproximosproductos(){
-    const URLJSON="/proximosProductos.json";
+    const URLJSON="../proximosProductos.json";
     //agrego un boton 
     document.querySelector("#listaProximosProductos").innerHTML='<button id="cargarproxproductos" class="btn btn-danger">Ver prox productos</button>';
     //evento para el boton
