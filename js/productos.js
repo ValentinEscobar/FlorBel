@@ -164,7 +164,7 @@ function addCarrito (elementPurchase) {
     }
     
 }
-
+//traigo la estructura a traves de un id para poder insertarle una card con un appenchild
 const listaproximosProdu = document.getElementById("listaProximosProductos")
 
 //traigo el json local para poner los productos que proximamente saldran a la venta

@@ -1,7 +1,7 @@
 {
     "productosProximos": [{
             "nombre": "Escencia Afrodiciaca",
-            "imagen": "/assets/img/escencia-afrodiciaca.jpg",
+            "imagen": "../assets/img/escencia-afrodiciaca.jpg",
             "descripcion": "Escencia de efecto afrodiciaco"
         },
         {
