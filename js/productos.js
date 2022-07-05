@@ -1,18 +1,6 @@
 //Pagina PRODUCTOS
 
-// // funcion constructora de objetos de la pagina web
-// class Product{
-//     constructor(nameProduct, priceProduct) {
-//         this.nameProduct = nameProduct.toLowerCase();
-//         this.priceProduct = parseFloat(priceProduct);
-//         this.idProduct = idProduct;
-//     }
-//     discount() {
-//         this.precio = this.precio * 0.05;
-//     }
-// }
-
-//Declaro un array para almacenar el producto y su precio
+//Declaro un array para almacenar la informacion de los productos
 const products = [{
     idProduct: 1, 
     nameProduct:"Pack 5", 
@@ -103,8 +91,8 @@ const renderProductos = (mostrando) =>{
         `
         listaProductos.appendChild(card)
     });
-
 }
+
 //Llamo a la funcion para que muestre todos los productos del array products en pantalla 
 renderProductos(products);
 
@@ -116,14 +104,14 @@ for(const button of buttons){
     button.addEventListener('click', (e)=>{
     let elemento = products.find(element=> element.idProduct == e.target.id);
     //funcion usando libreria para mostrar notificacion de agregado al carrito
-    juanito(elemento);
+    successpurchase(elemento);
     //funcion de agregado al carrito
     addCarrito(elemento);
     })
 }
 
 //funcion usando libreria para mostrar notificacion de agregado al carrito
-function juanito (produ) {
+function successpurchase (produ) {
     Swal.fire({
         icon: 'success',
         title: `${produ.nameProduct.toLowerCase()}`,
@@ -149,23 +137,53 @@ function addCarrito (elementPurchase) {
          sessionStorage.setItem("carrito",JSON.stringify(carrito));
      }
 
-    // limpia el array carrito de todo lo anterior
-    listaCarrito.innerHTML = ''
-    //recorre el carrito y si hay nuevos productos los ingresa
-    for(const product of carrito){
-        let li = document.createElement("li")
-        li.innerHTML= `
-        <div>
-        <p>${product.nameProduct}</p> 
-        <p>${product.priceProduct}</p>
-        </div>
-        `
-        listaCarrito.appendChild(li)
-    }
-    
+//tabla carrito
+let tabla=document.createElement("table");
+tabla.className="table table-striped";
+let tablaCarrito = document.createElement("tbody");
+// limpia el array carrito de todo lo anterior
+listaCarrito.innerHTML = ''
+//recorre el carrito y si hay nuevos productos los ingresa
+for(const product of carrito){
+    let fila=document.createElement("tr");
+    fila.innerHTML=`
+        <td>${product.nameProduct}</td>
+        <td>$ ${product.priceProduct}</td>
+        `;
+        tablaCarrito.appendChild(fila);
 }
+
+tabla.appendChild(tablaCarrito);
+
+let tablePosition=document.getElementById("carrito");
+tablePosition.appendChild(tabla);
+}
+
+//funcion usando libreria de compra realizada
+function successAllPurchase () {
+    if (sessionStorage.getItem("carrito")!=null) {
+        Swal.fire({
+            icon: 'success',
+            title: `Su compra a sido realizada`,
+            text: `Nos comunicaremos a la brevedad para enviarle su compra.`,
+        })
+    }else{
+        Swal.fire({
+            icon: 'error',
+            title: `No hay articulos en el carrito`,
+            text: `Seleccione los articulos que quiera comprar para poder realizar su compra correctamente.`,
+          })
+    }
+}
+
+//declaro una variable que llama al boton para confirmar compra
+let purchaseButton = document.getElementById("purchaseAll")
+
+//Funcion de boton para confirmar la compra
+purchaseButton.addEventListener("click", successAllPurchase);
+
 //traigo la estructura a traves de un id para poder insertarle una card con un appenchild
-const listaproximosProdu = document.getElementById("listaProximosProductos")
+const listaproximosProdu = document.getElementById("listaProximosProductos");
 
 //traigo el json local para poner los productos que proximamente saldran a la venta
 function obtenerproximosproductos(){
